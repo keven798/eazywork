@@ -1,0 +1,39 @@
+# 换行符统一策略
+# 提交进仓库的一律是 LF,检出时不做转换(配合 core.autocrlf=input)
+* text=auto eol=lf
+
+# Windows 脚本必须保留 CRLF,否则 cmd 执行异常
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# 显式声明为文本,避免被误判
+*.md    text eol=lf
+*.txt   text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.toml  text eol=lf
+*.py    text eol=lf
+*.js    text eol=lf
+*.ts    text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+
+# 二进制文件 —— 禁止任何换行符转换与文本差异处理
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.pdf   binary
+*.zip   binary
+*.gz    binary
+
+# Office 文档 —— 误做换行转换会直接损坏文件
+*.xlsx  binary
+*.xls   binary
+*.xlsm  binary
+*.docx  binary
+*.pptx  binary
